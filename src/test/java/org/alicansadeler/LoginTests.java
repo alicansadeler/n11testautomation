@@ -45,7 +45,7 @@ public class LoginTests extends BaseTest {
     public void loginTestEmptyPassword() {
         webDriver.get(Constants.LOGIN_URL);
         pages.getLoginPage().login(ConfigReader.getProperty("email"), "");
-        Assert.assertEquals(pages.getLoginPage().getValidationMessage(), "Şifreni girebilir misin?",
+        Assert.assertEquals(pages.getLoginPage().getPasswordValidationMessage(), "Şifreni girebilir misin?",
                 "Geçersiz hata mesajı");
 
     }
