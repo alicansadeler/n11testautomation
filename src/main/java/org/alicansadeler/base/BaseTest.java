@@ -19,11 +19,12 @@ public class BaseTest {
     protected WebDriver webDriver;
     protected Pages pages;
 
-    @BeforeMethod
+    @BeforeMethod(description = "WebDriver&pages oluşturuldu")
     public void setUp() {
         webDriver = Driver.getDriver();
         pages = new Pages();
     }
+
     @Step("N11'e login olunuyor")
     protected void loginToN11() {
         webDriver.get(Constants.LOGIN_URL);
@@ -39,7 +40,7 @@ public class BaseTest {
         return ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
     }
 
-    @AfterMethod
+    @AfterMethod(description = "Screenshot alarak driver kapatılıyor")
     public void tearDown(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE || result.getStatus() == ITestResult.SUCCESS) {
             screenshot();
