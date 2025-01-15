@@ -1,6 +1,7 @@
 package org.alicansadeler.base;
 
 import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.alicansadeler.pages.LoginPage;
 import org.alicansadeler.pages.Pages;
 import org.alicansadeler.utility.ConfigReader;
@@ -9,6 +10,7 @@ import org.alicansadeler.utility.Driver;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,7 +24,7 @@ public class BaseTest {
         webDriver = Driver.getDriver();
         pages = new Pages();
     }
-
+    @Step("N11'e login olunuyor")
     protected void loginToN11() {
         webDriver.get(Constants.LOGIN_URL);
         LoginPage loginPage = new LoginPage();
@@ -38,7 +40,10 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE || result.getStatus() == ITestResult.SUCCESS) {
+            screenshot();
+        }
         Driver.closeDriver();
     }
 }
