@@ -11,3 +11,9 @@
 ### Jenkins test sonuç ekranı:
 ![jenkins.png](jenkins.png)
 
+---
+
+### TestRail raporu:
+[testrail-report-1.pdf](testrail-report-1.pdf)
+
+
