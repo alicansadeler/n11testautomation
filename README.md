@@ -14,6 +14,7 @@
 ---
 
 ### TestRail raporu:
-[testrail-report-1.pdf](testrail-report-1.pdf)
+[Test Rail PDF](testrail-report-1.pdf)
+[Test Rail Excel](testrail-reports.xls.xlsx)
 
 
