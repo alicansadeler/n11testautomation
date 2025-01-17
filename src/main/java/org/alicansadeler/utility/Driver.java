@@ -11,7 +11,7 @@ public class Driver {
         if (webDriver == null) {
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
-
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
             webDriver.get("https://www.n11.com/");
         }
         return webDriver;
