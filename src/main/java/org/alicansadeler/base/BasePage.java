@@ -15,7 +15,7 @@ public class BasePage {
 
     public BasePage() {
         this.webDriver = Driver.getDriver();
-        this.webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        this.webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
     }
 
     @Step("5 saniye bekleme ekleniyor")
