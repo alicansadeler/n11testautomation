@@ -12,7 +12,7 @@ public class Driver {
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-            webDriver.get("https://www.n11.com/");
+            webDriver.get(Constants.BASE_URL);
         }
         return webDriver;
     }
