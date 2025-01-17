@@ -2,6 +2,7 @@ package org.alicansadeler.base;
 
 import io.qameta.allure.Step;
 import org.alicansadeler.utility.Driver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,8 +26,14 @@ public class BasePage {
 
     @Step("WebElement Click çalıştı")
     public void click(WebElement webElement) {
-        waitForVisibility(webElement);
-        webElement.click();
+        try {
+            waitForVisibility(webElement);
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
+        } catch (Exception e) {
+            // JavaScript click'i yedek olarak kullan
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", webElement);
+        }
     }
 
     @Step("WebElement sendKeys çalıştı")
